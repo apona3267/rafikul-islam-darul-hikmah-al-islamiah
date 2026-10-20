@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ | বেলতলী, পীরগাছা, রংপুর</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; }
+        .font-arabic { font-family: 'Amiri', serif; }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover { animation-play-state: paused; }
+        .page-section { display: none; animation: fadeIn 0.25s ease-in-out; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-link.active-nav {
+            color: #065f46;
+            font-weight: 700;
+            border-bottom: 2px solid #d97706;
+        }
+        /* Islamic Geometric Pattern Overlay */
+        .islamic-bg {
+            background-color: #022c22;
+            background-image: radial-gradient(#065f46 1px, transparent 1px), radial-gradient(#d97706 0.75px, #022c22 0.75px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+        }
+        .islamic-card-border {
+            border-top: 4px solid #d97706;
+        }
+        .arch-frame {
+            border-radius: 120px 120px 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Bismillah & Top Info Bar -->
+    <div class="bg-emerald-950 text-white text-xs sm:text-sm py-2 px-4 border-b border-amber-500/40">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span><i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> বেলতলী, পীরগাছা, রংপুর</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-phone mr-1 text-amber-400"></i> <span id="displayPhone">+৮৮০ ১৭০০-০০০০০০</span></span>
+            </div>
+            <div class="text-center font-arabic text-base sm:text-lg text-amber-300 tracking-wide">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 font-bold px-3 py-0.5 rounded-full text-xs shadow">
+                    <i class="fa-solid fa-star-and-crescent mr-1"></i> দ্বীনি ও আধুনিক শিক্ষা প্রতিষ্ঠান
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrolling Notice Ticker -->
+    <div class="bg-amber-50 border-b border-amber-200 py-2 px-4 overflow-hidden flex items-center">
+        <div class="max-w-7xl mx-auto w-full flex items-center">
+            <span class="bg-emerald-800 border border-amber-400 text-amber-300 text-xs font-bold px-3 py-1 rounded shrink-0 z-10 shadow flex items-center">
+                <i class="fa-solid fa-bullhorn mr-1.5"></i> জরুরি ঘোষণা
+            </span>
+            <div class="overflow-hidden w-full ml-3">
+                <p id="displayTicker" class="animate-marquee text-emerald-950 font-semibold text-sm"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-md sticky top-0 z-50 border-b-2 border-amber-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div onclick="showPage('home')" class="flex items-center space-x-3 cursor-pointer">
+                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-800 to-emerald-950 border-2 border-amber-400 rounded-full flex items-center justify-center text-amber-300 text-2xl shadow-md shrink-0">
+                        <i class="fa-solid fa-mosque"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-base sm:text-xl font-bold text-emerald-900 leading-tight">রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ</h1>
+                        <p class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-location-dot mr-1"></i>বেলতলী, পীরগাছা, রংপুর</p>
+                    </div>
+                </div>
+
+                <nav class="hidden lg:flex space-x-5 font-medium text-slate-700 items-center text-sm">
+                    <button onclick="showPage('home')" id="nav-home" class="nav-link active-nav py-1 hover:text-emerald-800 transition">হোম</button>
+                    <button onclick="showPage('about')" id="nav-about" class="nav-link py-1 hover:text-emerald-800 transition">পরিচিতি</button>
+                    <button onclick="showPage('classes')" id="nav-classes" class="nav-link py-1 hover:text-emerald-800 transition">বিভাগ ও শ্রেণি কার্যক্রম</button>
+                    <button onclick="showPage('books')" id="nav-books" class="nav-link py-1 hover:text-emerald-800 transition">পাঠ্যবই ও কিতাব</button>
+                    <button onclick="showPage('notice')" id="nav-notice" class="nav-link py-1 hover:text-emerald-800 transition">নোটিশ বোর্ড</button>
+                    <button onclick="showPage('teachers')" id="nav-teachers" class="nav-link py-1 hover:text-emerald-800 transition">শিক্ষকবৃন্দ</button>
+                    <button onclick="showPage('admission')" id="nav-admission" class="bg-gradient-to-r from-emerald-800 to-emerald-700 hover:from-emerald-900 hover:to-emerald-800 text-amber-300 border border-amber-400/50 font-bold px-4 py-2.5 rounded-lg shadow transition">
+                        <i class="fa-solid fa-pen-to-square mr-1"></i> অনলাইন ভর্তি
+                    </button>
+                </nav>
+
+                <button id="menu-btn" class="lg:hidden text-emerald-900 text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t px-4 pt-2 pb-4 space-y-2 shadow-lg">
+            <button onclick="showPage('home')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">হোম</button>
+            <button onclick="showPage('about')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">পরিচিতি</button>
+            <button onclick="showPage('classes')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">বিভাগ ও শ্রেণি কার্যক্রম</button>
+            <button onclick="showPage('books')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">পাঠ্যবই ও কিতাব (১ম-৫ম)</button>
+            <button onclick="showPage('notice')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">নোটিশ বোর্ড</button>
+            <button onclick="showPage('teachers')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">শিক্ষকবৃন্দ</button>
+            <button onclick="showPage('admission')" class="block w-full text-center bg-emerald-800 text-amber-300 py-2.5 rounded-lg font-bold">অনলাইন ভর্তি</button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- HOME -->
+        <section id="page-home" class="page-section active">
+            <div class="relative islamic-bg text-white py-16 md:py-24 px-4 border-b-4 border-amber-500">
+                <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400 text-amber-300 font-bold px-4 py-1.5 rounded-full text-sm shadow">
+                            <i class="fa-solid fa-book-quran"></i>
+                            <span>সহীহ কুরআন শিক্ষা, সুন্নাহ ও আধুনিক শিক্ষার সমন্বয়</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-bold leading-tight">
+                            রফিকুল ইসলাম দারুল হিকমাহ <br>
+                            <span class="text-amber-400">আল ইসলামিয়্যাহ</span>
+                        </h2>
+                        <p class="text-emerald-100 text-lg leading-relaxed">
+                            বেলতলী, পীরগাছা, রংপুরে অবস্থিত আমাদের এই দ্বীনি শিক্ষা প্রতিষ্ঠানে সুন্নতি পরিবেশে কুরআন-হাদিসের শিক্ষার পাশাপাশি আধুনিক সাধারণ শিক্ষার সমন্বয়ে শিক্ষার্থীদের আদর্শ, চরিত্রবান ও যোগ্য নাগরিক হিসেবে গড়ে তোলা হয়।
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <button onclick="showPage('admission')" class="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-lg transition">
+                                <i class="fa-solid fa-paper-plane mr-2"></i>অনলাইন ভর্তি আবেদন
+                            </button>
+                            <button onclick="showPage('books')" class="bg-white/10 hover:bg-white/20 border border-amber-400/40 text-white font-semibold px-6 py-3 rounded-xl transition">
+                                <i class="fa-solid fa-book-open mr-2 text-amber-300"></i>পাঠ্যবই ও কিতাব ডাউনলোড
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- DYNAMIC HERO PHOTO GALLERY SLIDER -->
+                    <div class="relative group rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-400/60 h-80 sm:h-96 bg-emerald-950">
+                        <img id="heroSlideImg" 
+                             src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80" 
+                             alt="Madrasha Gallery" 
+                             class="w-full h-full object-cover transition-all duration-500 cursor-pointer"
+                             onclick="openLightbox(this.src, document.getElementById('heroSlideCaption').innerText)">
+                        
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 pt-10 flex justify-between items-end">
+                            <p id="heroSlideCaption" class="text-amber-200 text-sm sm:text-base font-medium">মাদ্রাসার দ্বীনি ও আধুনিক শিক্ষা কার্যক্রম</p>
+                            <div id="heroSlideDots" class="flex space-x-1.5"></div>
+                        </div>
+
+                        <button onclick="prevHeroSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-amber-500 hover:text-slate-950 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button onclick="nextHeroSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-amber-500 hover:text-slate-950 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="py-10 bg-white border-b">
+                <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="p-5 rounded-xl bg-emerald-50 border border-emerald-200 islamic-card-border shadow-sm">
+                        <i class="fa-solid fa-user-graduate text-3xl text-emerald-800 mb-2"></i>
+                        <h3 id="displayStudents" class="text-3xl font-bold text-slate-800">৩৫০+</h3>
+                        <p class="text-sm text-slate-600 font-medium">মোট শিক্ষার্থী</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-amber-50 border border-amber-200 islamic-card-border shadow-sm">
+                        <i class="fa-solid fa-chalkboard-user text-3xl text-amber-600 mb-2"></i>
+                        <h3 id="displayTeacherCount" class="text-3xl font-bold text-slate-800">০ জন</h3>
+                        <p class="text-sm text-slate-600 font-medium">যোগ্য উস্তাদ ও শিক্ষক</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-teal-50 border border-teal-200 islamic-card-border shadow-sm">
+                        <i class="fa-solid fa-book-quran text-3xl text-teal-700 mb-2"></i>
+                        <h3 id="displayBookCount" class="text-3xl font-bold text-slate-800">০ টি</h3>
+                        <p class="text-sm text-slate-600 font-medium">ডিজিটাল পাঠ্যবই ও কিতাব</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-purple-50 border border-purple-200 islamic-card-border shadow-sm">
+                        <i class="fa-solid fa-award text-3xl text-purple-700 mb-2"></i>
+                        <h3 id="displayPassRate" class="text-3xl font-bold text-slate-800">১০০%</h3>
+                        <p class="text-sm text-slate-600 font-medium">উত্তীর্ণের হার</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Muhtamim / Headmaster Message -->
+            <div class="max-w-7xl mx-auto py-14 px-4 grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-amber-200 islamic-card-border flex flex-col sm:flex-row gap-6 items-center">
+                    <img id="displayHmImg" 
+                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" 
+                         alt="মুহতামিম / অধ্যক্ষ" 
+                         class="w-28 h-28 rounded-full object-cover border-4 border-amber-400 shadow shrink-0" 
+                         onerror="this.src='https://via.placeholder.com/150?text=Muhtamim'">
+                    <div>
+                        <span class="text-xs font-bold uppercase text-emerald-900 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full">
+                            <i class="fa-solid fa-feather-pointed mr-1"></i> মুহতামিম / প্রধানের বাণী
+                        </span>
+                        <p id="displayHmMsg" class="text-slate-600 text-sm mt-3 leading-relaxed italic"></p>
+                        <p id="displayHmName" class="mt-3 font-bold text-emerald-900"></p>
+                        <p class="text-xs text-slate-500">মুহতামিম / প্রধান, রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-800 text-white p-6 rounded-2xl shadow-md border-2 border-amber-400/40 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 flex items-center text-amber-300">
+                            <i class="fa-solid fa-star-and-crescent mr-2"></i> গুরুত্বপূর্ণ লিংকসমূহ
+                        </h3>
+                        <div class="space-y-2.5 text-sm">
+                            <button onclick="showPage('books')" class="w-full text-left bg-emerald-800/70 hover:bg-emerald-700 border border-amber-400/20 p-2.5 rounded-lg flex justify-between items-center transition">
+                                <span><i class="fa-solid fa-book-open mr-2 text-amber-300"></i> পাঠ্যবই ও কিতাব (১ম - ৫ম)</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-amber-300"></i>
+                            </button>
+                            <button onclick="showPage('notice')" class="w-full text-left bg-emerald-800/70 hover:bg-emerald-700 border border-amber-400/20 p-2.5 rounded-lg flex justify-between items-center transition">
+                                <span><i class="fa-solid fa-bell mr-2 text-amber-300"></i> সর্বশেষ নোটিশ বোর্ড</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-amber-300"></i>
+                            </button>
+                            <button onclick="showPage('teachers')" class="w-full text-left bg-emerald-800/70 hover:bg-emerald-700 border border-amber-400/20 p-2.5 rounded-lg flex justify-between items-center transition">
+                                <span><i class="fa-solid fa-users mr-2 text-amber-300"></i> সম্মানিত উস্তাদ ও শিক্ষকমণ্ডলী</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-amber-300"></i>
+                            </button>
+                            <button onclick="showPage('admission')" class="w-full text-left bg-emerald-800/70 hover:bg-emerald-700 border border-amber-400/20 p-2.5 rounded-lg flex justify-between items-center transition">
+                                <span><i class="fa-solid fa-file-signature mr-2 text-amber-300"></i> অনলাইন ভর্তি ফরম</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-amber-300"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HOME PAGE PHOTO GALLERY SECTION -->
+            <div class="max-w-7xl mx-auto pb-16 px-4">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-amber-200/70 islamic-card-border">
+                    <div class="flex flex-wrap justify-between items-center gap-4 mb-6 border-b pb-4">
+                        <div>
+                            <span class="text-xs font-bold uppercase text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded">স্মৃতিচারণ ও দ্বীনি কার্যক্রম</span>
+                            <h3 class="text-2xl font-bold text-slate-800 mt-1">
+                                <i class="fa-solid fa-images text-emerald-800 mr-2"></i>মাদ্রাসার ফটো গ্যালারি
+                            </h3>
+                        </div>
+                    </div>
+                    <div id="homeGalleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="page-about" class="page-section py-12 px-4 max-w-6xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-sm border p-6 sm:p-10 space-y-6 islamic-card-border">
+                <div class="border-b pb-4 flex justify-between items-center">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-emerald-950"><i class="fa-solid fa-mosque text-amber-500 mr-2"></i>মাদ্রাসার পরিচিতি</h2>
+                    <button onclick="showPage('home')" class="text-sm bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg font-medium">← হোম পেজ</button>
+                </div>
+                <p id="displayAboutText" class="text-slate-600 leading-relaxed"></p>
+                <div class="bg-emerald-50/80 p-6 rounded-2xl border border-amber-300 grid sm:grid-cols-2 gap-4 text-sm">
+                    <p><b>প্রতিষ্ঠানের নাম:</b> রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ</p>
+                    <p><b>ধরন:</b> দ্বীনি ও আধুনিক সমন্বিত শিক্ষা প্রতিষ্ঠান</p>
+                    <p><b>ঠিকানা:</b> বেলতলী, পীরগাছা, রংপুর</p>
+                    <p><b>প্রতিষ্ঠান কোড / রেজি:</b> <span id="displayEiin">১২৩৪৫৬</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLASSES -->
+        <section id="page-classes" class="page-section py-12 px-4 max-w-6xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-sm border p-6 sm:p-10 space-y-8 islamic-card-border">
+                <div class="border-b pb-4 flex justify-between items-center">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-emerald-950"><i class="fa-solid fa-book-quran text-amber-500 mr-2"></i>বিভাগ, শ্রেণি কার্যক্রম ও সময়সূচি</h2>
+                    <button onclick="showPage('home')" class="text-sm bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg font-medium">← হোম পেজ</button>
+                </div>
+                <div id="classesGridContainer" class="grid md:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- BOOKS -->
+        <section id="page-books" class="page-section py-12 px-4 max-w-6xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-sm border p-6 sm:p-10 space-y-6 islamic-card-border">
+                <div class="border-b pb-4 flex flex-wrap justify-between items-center gap-4">
+                    <div>
+                        <span class="text-emerald-800 font-bold text-sm uppercase">ডিজিটাল কুতুবখানা ও পাঠ্যবই</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">১ম থেকে ৫ম শ্রেণির পাঠ্যবই ও কিতাব</h2>
+                    </div>
+                    <button onclick="showPage('home')" class="text-sm bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg font-medium">← হোম পেজ</button>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterBooks('সব')" id="book-tab-সব" class="book-filter-btn bg-emerald-800 text-white px-4 py-2 rounded-lg text-sm font-bold">সকল শ্রেণি</button>
+                    <button onclick="filterBooks('১ম শ্রেণি')" id="book-tab-১ম শ্রেণি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">১ম শ্রেণি</button>
+                    <button onclick="filterBooks('২য় শ্রেণি')" id="book-tab-২য় শ্রেণি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">২য় শ্রেণি</button>
+                    <button onclick="filterBooks('৩য় শ্রেণি')" id="book-tab-৩য় শ্রেণি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">৩য় শ্রেণি</button>
+                    <button onclick="filterBooks('৪র্থ শ্রেণি')" id="book-tab-৪র্থ শ্রেণি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">৪র্থ শ্রেণি</button>
+                    <button onclick="filterBooks('৫ম শ্রেণি')" id="book-tab-৫ম শ্রেণি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">৫ম শ্রেণি</button>
+                </div>
+
+                <div id="booksGridContainer" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-2"></div>
+            </div>
+        </section>
+
+        <!-- NOTICE -->
+        <section id="page-notice" class="page-section py-12 px-4 max-w-5xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-sm border p-6 sm:p-10 space-y-6 islamic-card-border">
+                <div class="border-b pb-4 flex justify-between items-center">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-800"><i class="fa-solid fa-bullhorn text-emerald-800 mr-2"></i>নোটিশ বোর্ড</h2>
+                    <button onclick="showPage('home')" class="text-sm bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg font-medium">← হোম পেজ</button>
+                </div>
+                <div id="noticeListContainer" class="space-y-4"></div>
+            </div>
+        </section>
+
+        <!-- TEACHERS -->
+        <section id="page-teachers" class="page-section py-12 px-4 max-w-6xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-sm border p-6 sm:p-10 space-y-6 islamic-card-border">
+                <div class="border-b pb-4 flex justify-between items-center">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-800"><i class="fa-solid fa-users text-emerald-800 mr-2"></i>সম্মানিত উস্তাদ ও শিক্ষকমণ্ডলী</h2>
+                    <button onclick="showPage('home')" class="text-sm bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg font-medium">← হোম পেজ</button>
+                </div>
+                <div id="teachersGridContainer" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- ADMISSION -->
+        <section id="page-admission" class="page-section py-12 px-4 max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-md border p-6 sm:p-10 islamic-card-border">
+                <div class="flex justify-between items-center mb-6 border-b pb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-emerald-950">অনলাইন ভর্তি আবেদন ফরম</h3>
+                        <p class="text-xs text-slate-500">রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ, বেলতলী, পীরগাছা, রংপুর</p>
+                    </div>
+                    <button onclick="showPage('home')" class="text-sm bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg font-medium">← হোম পেজ</button>
+                </div>
+
+                <form id="admissionForm" class="space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">শিক্ষার্থীর পূর্ণ নাম *</label>
+                            <input type="text" id="studentName" required placeholder="শিক্ষার্থীর নাম লিখুন" class="w-full border rounded-lg px-3.5 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">ভর্তিচ্ছু বিভাগ / শ্রেণি *</label>
+                            <select id="studentClass" required class="w-full border rounded-lg px-3.5 py-2">
+                                <option value="">বিভাগ / শ্রেণি নির্বাচন করুন</option>
+                                <option>নূরানী / মক্তব বিভাগ (শিশু শ্রেণি)</option>
+                                <option>নাজেরা ও হিফজুল কুরআন বিভাগ</option>
+                                <option>১ম শ্রেণি</option>
+                                <option>২য় শ্রেণি</option>
+                                <option>৩য় শ্রেণি</option>
+                                <option>৪র্থ শ্রেণি</option>
+                                <option>৫ম শ্রেণি</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">জন্ম তারিখ *</label>
+                            <input type="date" id="studentDob" required class="w-full border rounded-lg px-3.5 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">পিতা/অভিভাবকের নাম *</label>
+                            <input type="text" id="guardianName" required placeholder="অভিভাবকের নাম" class="w-full border rounded-lg px-3.5 py-2">
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">মোবাইল নম্বর *</label>
+                            <input type="tel" id="guardianPhone" required placeholder="017XXXXXXXX" class="w-full border rounded-lg px-3.5 py-2">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">গ্রাম / ঠিকানা *</label>
+                            <input type="text" id="studentAddress" required placeholder="বেলতলী, পীরগাছা, রংপুর" class="w-full border rounded-lg px-3.5 py-2">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-emerald-800 hover:bg-emerald-900 text-amber-300 font-bold py-3 rounded-lg shadow transition">
+                        <i class="fa-solid fa-paper-plane mr-1"></i> আবেদন জমা দিন
+                    </button>
+                    <div id="formSuccess" class="hidden text-emerald-800 bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-sm font-medium text-center">
+                        ✅ আলহামদুলিল্লাহ! আপনার ভর্তির আবেদনটি সফলভাবে জমা হয়েছে।
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div id="lightboxModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white hover:text-amber-300 text-2xl font-bold">
+                <i class="fa-solid fa-xmark"></i> বন্ধ করুন
+            </button>
+            <img id="lightboxImg" src="" class="w-full max-h-[80vh] object-contain rounded-xl shadow-2xl bg-black">
+            <p id="lightboxCaption" class="text-center text-white font-medium mt-3 text-base"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-slate-300 py-8 px-4 mt-12 border-t-4 border-amber-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+            <div>
+                <h4 class="text-amber-300 font-bold text-base flex items-center justify-center sm:justify-start gap-2">
+                    <i class="fa-solid fa-mosque"></i> রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ
+                </h4>
+                <p class="text-xs text-emerald-200/80 mt-1">বেলতলী, পীরগাছা, রংপুর</p>
+            </div>
+            <div class="text-xs text-emerald-300/70">
+                © ২০২৬ রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ | সর্বস্বত্ব সংরক্ষিত
+            </div>
+        </div>
+    </footer>
+
+    <!-- FIREBASE SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+    <script>
+        /* ================= Firebase Config ================= */
+        const firebaseConfig = {
+            apiKey: "AIzaSyAHScnxyrIHhVNzAZgF5NW3irt5r7gKerw",
+            authDomain: "madrasha-eb5dc.firebaseapp.com",
+            databaseURL: "https://madrasha-eb5dc-default-rtdb.firebaseio.com",
+            projectId: "madrasha-eb5dc",
+            storageBucket: "madrasha-eb5dc.firebasestorage.app",
+            messagingSenderId: "550274173889",
+            appId: "1:550274173889:web:b1b8939ac0e73e7bdffd40",
+            measurementId: "G-J5T7PXZNMS"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        /* ================= Default Seed Data ================= */
+        const defaultSettings = {
+            ticker: "📢 রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ, বেলতলী, পীরগাছা, রংপুর-এ নতুন শিক্ষাবর্ষে নূরানী, হিফজ ও ১ম থেকে ৫ম শ্রেণি পর্যন্ত ভর্তি চলছে!",
+            students: "৩৫০+",
+            passRate: "১০০%",
+            phone: "+৮৮০ ১৭০০-০০০০০০",
+            eiin: "১২৩৪৫৬",
+            hmImg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+            hmName: "মাওলানা মোঃ রফিকুল ইসলাম",
+            hmMsg: "রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ এ অঞ্চলের শিশুদের মাঝে সহীহ কুরআন শিক্ষা, সুন্নাহ ও আধুনিক শিক্ষার আলো ছড়িয়ে দিচ্ছে। আপনার সন্তানকে দ্বীনি ও আদর্শ মানুষ হিসেবে গড়ে তুলতে আমাদের মাদ্রাসায় পাঠান।",
+            about: "রংপুর জেলার পীরগাছা উপজেলার বেলতলীর মনোরম পরিবেশে দ্বীনি ও আধুনিক শিক্ষার সমন্বয়ে 'রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ' প্রতিষ্ঠিত হয়েছে। আমাদের লক্ষ্য প্রতিটি শিক্ষার্থীকে বিশুদ্ধ কুরআন তিলাওয়াত, ইসলামী আদব-আখলাক এবং যুগোপযোগী সাধারণ শিক্ষায় পারদর্শী করে গড়ে তোলা।"
+        };
+
+        const defaultGallery = [
+            { img: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80", caption: "মাদ্রাসার মনোরম দ্বীনি পরিবেশ" },
+            { img: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80", caption: "পবিত্র কুরআনুল কারীম ও কিতাব পাঠদান" },
+            { img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80", caption: "আমাদের সমৃদ্ধ কুতুবখানা ও পাঠ্যবই" }
+        ];
+
+        const defaultBooks = [
+            { className: "১ম শ্রেণি", title: "নূরানী কায়দা ও আমপারা (১ম শ্রেণি)", subject: "কুরআন ও তাজবীদ", link: "https://nctb.gov.bd" },
+            { className: "১ম শ্রেণি", title: "আমার বাংলা বই (১ম শ্রেণি)", subject: "বাংলা", link: "https://nctb.gov.bd" },
+            { className: "১ম শ্রেণি", title: "English for Today (Class 1)", subject: "ইংরেজি", link: "https://nctb.gov.bd" },
+            { className: "২য় শ্রেণি", title: "আদইয়াতুস সালাত ও মাসনূন দোয়া", subject: "হাদিস ও ফিকহ", link: "https://nctb.gov.bd" },
+            { className: "৩য় শ্রেণি", title: "আকাইদ ও ফিকহ (৩য় শ্রেণি)", subject: "ইসলামী শিক্ষা", link: "https://nctb.gov.bd" },
+            { className: "৪র্থ শ্রেণি", title: "আল-লুগাতুল আরাবিয়্যাহ (৪র্থ শ্রেণি)", subject: "আরবি সাহিত্য", link: "https://nctb.gov.bd" },
+            { className: "৫ম শ্রেণি", title: "কুরআন মাজীদ ও তাজবীদ (৫ম শ্রেণি)", subject: "কুরআন", link: "https://nctb.gov.bd" },
+            { className: "৫ম শ্রেণি", title: "প্রাথমিক গণিত ও বাংলা (৫ম শ্রেণি)", subject: "সাধারণ শিক্ষা", link: "https://nctb.gov.bd" }
+        ];
+
+        const defaultNotices = [
+            { date: "২০ অক্টোবর, ২০২৬", title: "নতুন শিক্ষাবর্ষে নূরানী, হিফজ ও ১ম-৫ম শ্রেণিতে ভর্তি বিজ্ঞপ্তি", desc: "রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ-তে আবাসিক ও অনাবাসিক শাখায় ভর্তি চলছে।", link: "" }
+        ];
+
+        const defaultTeachers = [
+            { name: "মাওলানা মোঃ রফিকুল ইসলাম", role: "মুহতামিম / অধ্যক্ষ", qual: "কামিল (হাদিস), এম.এ", phone: "01700000000", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" },
+            { name: "হাফেজ মাওলানা আব্দুল্লাহ", role: "প্রধান ক্বারী ও হিফজ শিক্ষক", qual: "হাফেজে কুরআন, তাকমীল", phone: "01700000001", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" }
+        ];
+
+        const defaultClasses = [
+            { title: "নূরানী ও মক্তব বিভাগ", desc: "বিশুদ্ধ উচ্চারণে নূরানী কায়দা, আমপারা, মাসনূন দোয়া ও নামাজ শিক্ষা।", time: "সকাল ৮:০০ - ১১:৩০ মি.", color: "emerald" },
+            { title: "নাজেরা ও হিফজুল কুরআন বিভাগ", desc: "অভিজ্ঞ হাফেজ ও ক্বারী সাহেবদের তত্ত্বাবধানে তাজবীদসহ কুরআন হিফজ।", time: "সকাল ৬:০০ - রাত ৯:০০ মি.", color: "amber" },
+            { title: "১ম থেকে ৫ম শ্রেণি (সমন্বিত বিভাগ)", desc: "দ্বীনি কিতাবের পাশাপাশি বাংলা, ইংরেজি ও গণিতের পূর্ণাঙ্গ পাঠদান।", time: "সকাল ৯:০০ - বিকেল ৪:০০ মি.", color: "sky" }
+        ];
+
+        let allBooks = [];
+        let currentBookFilter = 'সব';
+        let galleryPhotos = [];
+        let currentSlideIndex = 0;
+        let slideInterval = null;
+
+        /* ================= Navigation ================= */
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active-nav'));
+            const navBtn = document.getElementById('nav-' + pageId);
+            if (navBtn) navBtn.classList.add('active-nav');
+            document.getElementById('mobile-menu').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        function freshImg(url, fallback) {
+            const finalUrl = url || fallback;
+            if (!finalUrl) return '';
+            const sep = finalUrl.includes('?') ? '&' : '?';
+            return finalUrl + sep + 't=' + Date.now();
+        }
+
+        function colorClasses(color) {
+            const map = {
+                pink:    { bg: 'bg-pink-50',    border: 'border-pink-500',    text: 'text-pink-700' },
+                amber:   { bg: 'bg-amber-50',   border: 'border-amber-500',   text: 'text-amber-700' },
+                emerald: { bg: 'bg-emerald-50', border: 'border-emerald-600', text: 'text-emerald-700' },
+                blue:    { bg: 'bg-blue-50',    border: 'border-blue-500',    text: 'text-blue-700' },
+                purple:  { bg: 'bg-purple-50',  border: 'border-purple-500',  text: 'text-purple-700' },
+                rose:    { bg: 'bg-rose-50',    border: 'border-rose-500',    text: 'text-rose-700' },
+                sky:     { bg: 'bg-sky-50',     border: 'border-sky-500',     text: 'text-sky-700' },
+                indigo:  { bg: 'bg-indigo-50',  border: 'border-indigo-500',  text: 'text-indigo-700' }
+            };
+            return map[color] || map.emerald;
+        }
+
+        /* ================= Realtime: PHOTO GALLERY & HERO SLIDER ================= */
+        db.ref('gallery').on('value', (snap) => {
+            const val = snap.val();
+            if (!val) {
+                db.ref('gallery').set(defaultGallery).catch(()=>{});
+                galleryPhotos = defaultGallery.slice();
+            } else {
+                galleryPhotos = Object.values(val).reverse();
+            }
+            currentSlideIndex = 0;
+            renderHeroSlider();
+            renderHomeGallery();
+            startHeroAutoSlide();
+        });
+
+        function renderHeroSlider() {
+            const imgEl = document.getElementById('heroSlideImg');
+            const capEl = document.getElementById('heroSlideCaption');
+            const dotsEl = document.getElementById('heroSlideDots');
+
+            if (!galleryPhotos.length) {
+                imgEl.src = "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=800&q=80";
+                capEl.innerText = "রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ";
+                dotsEl.innerHTML = "";
+                return;
+            }
+
+            if (currentSlideIndex >= galleryPhotos.length) currentSlideIndex = 0;
+            if (currentSlideIndex < 0) currentSlideIndex = galleryPhotos.length - 1;
+
+            const current = galleryPhotos[currentSlideIndex];
+            imgEl.src = current.img;
+            capEl.innerText = current.caption || "মাদ্রাসার ফটো গ্যালারি";
+
+            dotsEl.innerHTML = galleryPhotos.map((_, idx) => `
+                <button onclick="goToHeroSlide(${idx})" class="w-2.5 h-2.5 rounded-full transition ${idx === currentSlideIndex ? 'bg-amber-400 w-6' : 'bg-white/50 hover:bg-white'}"></button>
+            `).join('');
+        }
+
+        function nextHeroSlide() {
+            if (!galleryPhotos.length) return;
+            currentSlideIndex = (currentSlideIndex + 1) % galleryPhotos.length;
+            renderHeroSlider();
+            startHeroAutoSlide();
+        }
+
+        function prevHeroSlide() {
+            if (!galleryPhotos.length) return;
+            currentSlideIndex = (currentSlideIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+            renderHeroSlider();
+            startHeroAutoSlide();
+        }
+
+        function goToHeroSlide(idx) {
+            currentSlideIndex = idx;
+            renderHeroSlider();
+            startHeroAutoSlide();
+        }
+
+        function startHeroAutoSlide() {
+            if (slideInterval) clearInterval(slideInterval);
+            if (galleryPhotos.length > 1) {
+                slideInterval = setInterval(() => {
+                    currentSlideIndex = (currentSlideIndex + 1) % galleryPhotos.length;
+                    renderHeroSlider();
+                }, 4500);
+            }
+        }
+
+        function renderHomeGallery() {
+            const grid = document.getElementById('homeGalleryGrid');
+            if (!galleryPhotos.length) {
+                grid.innerHTML = `<p class="col-span-full text-center text-slate-400 py-8">গ্যালারিতে এখনো কোনো ছবি যুক্ত করা হয়নি।</p>`;
+                return;
+            }
+            grid.innerHTML = galleryPhotos.map(item => {
+                const safeCaption = (item.caption || 'মাদ্রাসার ছবি').replace(/'/g, "\\'");
+                return `
+                    <div onclick="openLightbox('${item.img}', '${safeCaption}')" class="group relative rounded-xl overflow-hidden shadow-sm border border-amber-200 bg-slate-100 cursor-pointer h-52">
+                        <img src="${item.img}" alt="${safeCaption}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/400x300?text=Photo'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition flex items-end p-3.5">
+                            <p class="text-white text-xs sm:text-sm font-medium line-clamp-2">${item.caption || 'মাদ্রাসার ফটো গ্যালারি'}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openLightbox(src, caption) {
+            const modal = document.getElementById('lightboxModal');
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxCaption').innerText = caption || '';
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        /* ================= Realtime: SETTINGS ================= */
+        db.ref('settings').on('value', (snap) => {
+            let s = snap.val();
+            if (!s) { db.ref('settings').set(defaultSettings).catch(()=>{}); s = defaultSettings; }
+
+            document.getElementById('displayTicker').innerText = s.ticker || defaultSettings.ticker;
+            document.getElementById('displayStudents').innerText = s.students || defaultSettings.students;
+            document.getElementById('displayPassRate').innerText = s.passRate || defaultSettings.passRate;
+            document.getElementById('displayPhone').innerText = s.phone || defaultSettings.phone;
+            document.getElementById('displayEiin').innerText = s.eiin || defaultSettings.eiin;
+            document.getElementById('displayHmName').innerText = "— " + (s.hmName || defaultSettings.hmName);
+            document.getElementById('displayHmMsg').innerText = `"${s.hmMsg || defaultSettings.hmMsg}"`;
+            document.getElementById('displayAboutText').innerText = s.about || defaultSettings.about;
+
+            const hmImgUrl = s.hmImg || defaultSettings.hmImg;
+            const hmImgEl = document.getElementById('displayHmImg');
+            if (hmImgEl && hmImgUrl) {
+                hmImgEl.src = freshImg(hmImgUrl, defaultSettings.hmImg);
+            }
+        });
+
+        /* ================= Realtime: BOOKS ================= */
+        db.ref('books').on('value', (snap) => {
+            const val = snap.val();
+            if (!val) {
+                db.ref('books').set(defaultBooks).catch(()=>{});
+                allBooks = defaultBooks.slice();
+            } else {
+                allBooks = Object.values(val);
+            }
+            document.getElementById('displayBookCount').innerText = allBooks.length + " টি";
+            renderBooks();
+        });
+
+        /* ================= Realtime: CLASSES ================= */
+        db.ref('classes').on('value', (snap) => {
+            const val = snap.val();
+            let classes;
+            if (!val) {
+                db.ref('classes').set(defaultClasses).catch(()=>{});
+                classes = defaultClasses.slice();
+            } else {
+                classes = Object.values(val);
+            }
+            const container = document.getElementById('classesGridContainer');
+            if (!classes.length) {
+                container.innerHTML = `<p class="col-span-full text-center text-slate-400 py-6">কোনো শ্রেণি কার্যক্রম নেই।</p>`;
+                return;
+            }
+            container.innerHTML = classes.map(c => {
+                const col = colorClasses(c.color);
+                return `
+                    <div class="${col.bg} p-6 rounded-2xl border-b-4 ${col.border}">
+                        <h3 class="text-xl font-bold mb-2">${c.title || ''}</h3>
+                        <p class="text-slate-600 text-sm mb-3">${c.desc || ''}</p>
+                        <p class="text-xs font-bold ${col.text}">⏰ ${c.time || ''}</p>
+                    </div>
+                `;
+            }).join('');
+        });
+
+        /* ================= Realtime: TEACHERS ================= */
+        db.ref('teachers').on('value', (snap) => {
+            const val = snap.val();
+            let teachers;
+            if (!val) {
+                db.ref('teachers').set(defaultTeachers).catch(()=>{});
+                teachers = defaultTeachers.slice();
+            } else {
+                teachers = Object.values(val);
+            }
+            document.getElementById('displayTeacherCount').innerText = teachers.length + " জন";
+
+            const teacherContainer = document.getElementById('teachersGridContainer');
+            teacherContainer.innerHTML = teachers.map(t => {
+                const teacherImg = t.img 
+                    ? freshImg(t.img, 'https://via.placeholder.com/150') 
+                    : 'https://via.placeholder.com/150';
+                return `
+                    <div class="bg-stone-50 rounded-2xl border border-amber-200 p-6 text-center hover:shadow-md transition islamic-card-border">
+                        <img src="${teacherImg}" 
+                             class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-4 border-amber-400 shadow"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/150';">
+                        <h4 class="font-bold text-lg text-slate-800">${t.name || ''}</h4>
+                        <p class="text-emerald-800 text-sm font-semibold">${t.role || ''}</p>
+                        <p class="text-xs text-slate-500 mt-1">${t.qual || ''}</p>
+                        ${t.phone ? `<p class="text-xs text-slate-600 mt-2"><i class="fa-solid fa-phone mr-1 text-emerald-700"></i>${t.phone}</p>` : ''}
+                    </div>
+                `;
+            }).join('');
+        });
+
+        /* ================= Realtime: NOTICES ================= */
+        db.ref('notices').on('value', (snap) => {
+            const val = snap.val();
+            let notices;
+            if (!val) {
+                db.ref('notices').set(defaultNotices).catch(()=>{});
+                notices = defaultNotices.slice();
+            } else {
+                notices = Object.values(val).reverse();
+            }
+
+            const noticeContainer = document.getElementById('noticeListContainer');
+            if (!notices.length) {
+                noticeContainer.innerHTML = `<p class="text-center text-slate-400 py-6">কোনো নোটিশ নেই।</p>`;
+                return;
+            }
+            noticeContainer.innerHTML = notices.map(n => `
+                <div class="p-5 rounded-xl border border-amber-200 bg-stone-50 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-800 bg-amber-100 px-2.5 py-0.5 rounded">${n.date || ''}</span>
+                        <h4 class="font-bold text-lg text-slate-800 mt-2">${n.title || ''}</h4>
+                        <p class="text-sm text-slate-600 mt-1">${n.desc || ''}</p>
+                    </div>
+                    ${n.link ? `<a href="${n.link}" target="_blank" class="bg-emerald-800 text-amber-300 text-xs font-bold px-4 py-2 rounded-lg shrink-0"><i class="fa-solid fa-file-pdf mr-1"></i>পিডিএফ দেখুন</a>` : ''}
+                </div>
+            `).join('');
+        });
+
+        /* ================= Books Rendering ================= */
+        function filterBooks(className) {
+            currentBookFilter = className;
+            document.querySelectorAll('.book-filter-btn').forEach(btn => {
+                btn.className = "book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold";
+            });
+            const activeBtn = document.getElementById('book-tab-' + className);
+            if (activeBtn) activeBtn.className = "book-filter-btn bg-emerald-800 text-white px-4 py-2 rounded-lg text-sm font-bold";
+            renderBooks();
+        }
+
+        function renderBooks() {
+            const container = document.getElementById('booksGridContainer');
+            const filtered = currentBookFilter === 'সব'
+                ? allBooks
+                : allBooks.filter(b => b.className === currentBookFilter);
+
+            if (!filtered.length) {
+                container.innerHTML = `<p class="col-span-full text-center text-slate-400 py-8">এই শ্রেণির কোনো বই এখনো যুক্ত করা হয়নি।</p>`;
+                return;
+            }
+            container.innerHTML = filtered.map(b => `
+                <div class="bg-stone-50 rounded-2xl border border-amber-200 p-5 flex flex-col justify-between hover:shadow-md transition islamic-card-border">
+                    <div>
+                        <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2.5 py-1 rounded">${b.className}</span>
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-xl flex items-center justify-center text-2xl my-4">
+                            <i class="fa-solid fa-book-quran"></i>
+                        </div>
+                        <h4 class="font-bold text-base text-slate-800">${b.title}</h4>
+                        <p class="text-xs text-slate-500 mt-1">বিষয়: ${b.subject}</p>
+                    </div>
+                    <a href="${b.link}" target="_blank" class="mt-4 block text-center bg-emerald-800 hover:bg-emerald-900 text-amber-300 text-xs font-bold py-2.5 rounded-lg transition">
+                        <i class="fa-solid fa-download mr-1"></i> পিডিএফ পড়ুন / ডাউনলোড
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        /* ================= Admission Form ================= */
+        document.getElementById('admissionForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>পাঠানো হচ্ছে...';
+
+            db.ref('applicants').push({
+                name: document.getElementById('studentName').value,
+                className: document.getElementById('studentClass').value,
+                dob: document.getElementById('studentDob').value,
+                guardian: document.getElementById('guardianName').value,
+                phone: document.getElementById('guardianPhone').value,
+                address: document.getElementById('studentAddress').value,
+                createdAt: firebase.database.ServerValue.TIMESTAMP
+            }).then(() => {
+                document.getElementById('formSuccess').classList.remove('hidden');
+                document.getElementById('admissionForm').reset();
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+                setTimeout(() => document.getElementById('formSuccess').classList.add('hidden'), 6000);
+            }).catch((err) => {
+                alert('❌ আবেদন জমা দিতে সমস্যা হয়েছে: ' + err.message);
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            });
+        });
+    </script>
+</body>
+</html>
