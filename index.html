@@ -31,7 +31,6 @@
             font-weight: 700;
             border-bottom: 2px solid #d97706;
         }
-        /* Islamic Geometric Pattern Overlay */
         .islamic-bg {
             background-color: #022c22;
             background-image: radial-gradient(#065f46 1px, transparent 1px), radial-gradient(#d97706 0.75px, #022c22 0.75px);
@@ -40,9 +39,6 @@
         }
         .islamic-card-border {
             border-top: 4px solid #d97706;
-        }
-        .arch-frame {
-            border-radius: 120px 120px 16px 16px;
         }
     </style>
 </head>
@@ -114,7 +110,7 @@
             <button onclick="showPage('home')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">হোম</button>
             <button onclick="showPage('about')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">পরিচিতি</button>
             <button onclick="showPage('classes')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">বিভাগ ও শ্রেণি কার্যক্রম</button>
-            <button onclick="showPage('books')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">পাঠ্যবই ও কিতাব (১ম-৫ম)</button>
+            <button onclick="showPage('books')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">পাঠ্যবই ও কিতাব</button>
             <button onclick="showPage('notice')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">নোটিশ বোর্ড</button>
             <button onclick="showPage('teachers')" class="block w-full text-left py-2 hover:text-emerald-800 font-medium">শিক্ষকবৃন্দ</button>
             <button onclick="showPage('admission')" class="block w-full text-center bg-emerald-800 text-amber-300 py-2.5 rounded-lg font-bold">অনলাইন ভর্তি</button>
@@ -137,7 +133,7 @@
                             <span class="text-amber-400">আল ইসলামিয়্যাহ</span>
                         </h2>
                         <p class="text-emerald-100 text-lg leading-relaxed">
-                            বেলতলী, পীরগাছা, রংপুরে অবস্থিত আমাদের এই দ্বীনি শিক্ষা প্রতিষ্ঠানে সুন্নতি পরিবেশে কুরআন-হাদিসের শিক্ষার পাশাপাশি আধুনিক সাধারণ শিক্ষার সমন্বয়ে শিক্ষার্থীদের আদর্শ, চরিত্রবান ও যোগ্য নাগরিক হিসেবে গড়ে তোলা হয়।
+                            বেলতলী, পীরগাছা, রংপুরে অবস্থিত আমাদের এই দ্বীনি শিক্ষা প্রতিষ্ঠানে নার্সারি, হিফজ বিভাগ এবং ১ম থেকে ৫ম শ্রেণি পর্যন্ত কুরআন-হাদিসের শিক্ষার পাশাপাশি আধুনিক সাধারণ শিক্ষার সমন্বয়ে শিক্ষার্থীদের আদর্শ ও যোগ্য নাগরিক হিসেবে গড়ে তোলা হয়।
                         </p>
                         <div class="flex flex-wrap gap-4 pt-2">
                             <button onclick="showPage('admission')" class="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-lg transition">
@@ -223,7 +219,7 @@
                         </h3>
                         <div class="space-y-2.5 text-sm">
                             <button onclick="showPage('books')" class="w-full text-left bg-emerald-800/70 hover:bg-emerald-700 border border-amber-400/20 p-2.5 rounded-lg flex justify-between items-center transition">
-                                <span><i class="fa-solid fa-book-open mr-2 text-amber-300"></i> পাঠ্যবই ও কিতাব (১ম - ৫ম)</span>
+                                <span><i class="fa-solid fa-book-open mr-2 text-amber-300"></i> পাঠ্যবই ও কিতাব (নার্সারি, হিফজ ও ১ম-৫ম)</span>
                                 <i class="fa-solid fa-chevron-right text-xs text-amber-300"></i>
                             </button>
                             <button onclick="showPage('notice')" class="w-full text-left bg-emerald-800/70 hover:bg-emerald-700 border border-amber-400/20 p-2.5 rounded-lg flex justify-between items-center transition">
@@ -269,7 +265,7 @@
                 <p id="displayAboutText" class="text-slate-600 leading-relaxed"></p>
                 <div class="bg-emerald-50/80 p-6 rounded-2xl border border-amber-300 grid sm:grid-cols-2 gap-4 text-sm">
                     <p><b>প্রতিষ্ঠানের নাম:</b> রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ</p>
-                    <p><b>ধরন:</b> দ্বীনি ও আধুনিক সমন্বিত শিক্ষা প্রতিষ্ঠান</p>
+                    <p><b>বিভাগসমূহ:</b> নার্সারি, হিফজ বিভাগ ও ১ম থেকে ৫ম শ্রেণি</p>
                     <p><b>ঠিকানা:</b> বেলতলী, পীরগাছা, রংপুর</p>
                     <p><b>প্রতিষ্ঠান কোড / রেজি:</b> <span id="displayEiin">১২৩৪৫৬</span></p>
                 </div>
@@ -293,13 +289,15 @@
                 <div class="border-b pb-4 flex flex-wrap justify-between items-center gap-4">
                     <div>
                         <span class="text-emerald-800 font-bold text-sm uppercase">ডিজিটাল কুতুবখানা ও পাঠ্যবই</span>
-                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">১ম থেকে ৫ম শ্রেণির পাঠ্যবই ও কিতাব</h2>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">নার্সারি, হিফজ বিভাগ ও ১ম থেকে ৫ম শ্রেণির পাঠ্যবই</h2>
                     </div>
                     <button onclick="showPage('home')" class="text-sm bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg font-medium">← হোম পেজ</button>
                 </div>
 
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="filterBooks('সব')" id="book-tab-সব" class="book-filter-btn bg-emerald-800 text-white px-4 py-2 rounded-lg text-sm font-bold">সকল শ্রেণি</button>
+                    <button onclick="filterBooks('সব')" id="book-tab-সব" class="book-filter-btn bg-emerald-800 text-white px-4 py-2 rounded-lg text-sm font-bold">সকল শ্রেণি ও বিভাগ</button>
+                    <button onclick="filterBooks('নার্সারি')" id="book-tab-নার্সারি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">নার্সারি</button>
+                    <button onclick="filterBooks('হিফজ বিভাগ')" id="book-tab-হিফজ বিভাগ" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">হিফজ বিভাগ</button>
                     <button onclick="filterBooks('১ম শ্রেণি')" id="book-tab-১ম শ্রেণি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">১ম শ্রেণি</button>
                     <button onclick="filterBooks('২য় শ্রেণি')" id="book-tab-২য় শ্রেণি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">২য় শ্রেণি</button>
                     <button onclick="filterBooks('৩য় শ্রেণি')" id="book-tab-৩য় শ্রেণি" class="book-filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold">৩য় শ্রেণি</button>
@@ -354,8 +352,9 @@
                             <label class="block text-sm font-medium text-slate-700 mb-1">ভর্তিচ্ছু বিভাগ / শ্রেণি *</label>
                             <select id="studentClass" required class="w-full border rounded-lg px-3.5 py-2">
                                 <option value="">বিভাগ / শ্রেণি নির্বাচন করুন</option>
-                                <option>নূরানী / মক্তব বিভাগ (শিশু শ্রেণি)</option>
-                                <option>নাজেরা ও হিফজুল কুরআন বিভাগ</option>
+                                <option>নার্সারি</option>
+                                <option>হিফজ বিভাগ</option>
+                                <option>প্রাক-প্রাথমিক (শিশু শ্রেণি)</option>
                                 <option>১ম শ্রেণি</option>
                                 <option>২য় শ্রেণি</option>
                                 <option>৩য় শ্রেণি</option>
@@ -443,7 +442,7 @@
 
         /* ================= Default Seed Data ================= */
         const defaultSettings = {
-            ticker: "📢 রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ, বেলতলী, পীরগাছা, রংপুর-এ নতুন শিক্ষাবর্ষে নূরানী, হিফজ ও ১ম থেকে ৫ম শ্রেণি পর্যন্ত ভর্তি চলছে!",
+            ticker: "📢 রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ, বেলতলী, পীরগাছা, রংপুর-এ নতুন শিক্ষাবর্ষে নার্সারি, হিফজ বিভাগ ও ১ম থেকে ৫ম শ্রেণি পর্যন্ত ভর্তি চলছে!",
             students: "৩৫০+",
             passRate: "১০০%",
             phone: "+৮৮০ ১৭০০-০০০০০০",
@@ -451,7 +450,7 @@
             hmImg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
             hmName: "মাওলানা মোঃ রফিকুল ইসলাম",
             hmMsg: "রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ এ অঞ্চলের শিশুদের মাঝে সহীহ কুরআন শিক্ষা, সুন্নাহ ও আধুনিক শিক্ষার আলো ছড়িয়ে দিচ্ছে। আপনার সন্তানকে দ্বীনি ও আদর্শ মানুষ হিসেবে গড়ে তুলতে আমাদের মাদ্রাসায় পাঠান।",
-            about: "রংপুর জেলার পীরগাছা উপজেলার বেলতলীর মনোরম পরিবেশে দ্বীনি ও আধুনিক শিক্ষার সমন্বয়ে 'রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ' প্রতিষ্ঠিত হয়েছে। আমাদের লক্ষ্য প্রতিটি শিক্ষার্থীকে বিশুদ্ধ কুরআন তিলাওয়াত, ইসলামী আদব-আখলাক এবং যুগোপযোগী সাধারণ শিক্ষায় পারদর্শী করে গড়ে তোলা।"
+            about: "রংপুর জেলার পীরগাছা উপজেলার বেলতলীর মনোরম পরিবেশে দ্বীনি ও আধুনিক শিক্ষার সমন্বয়ে 'রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ' প্রতিষ্ঠিত হয়েছে। এখানে নার্সারি, হিফজ বিভাগ এবং ১ম থেকে ৫ম শ্রেণি পর্যন্ত বিশুদ্ধ কুরআন তিলাওয়াত, ইসলামী আদব-আখলাক এবং যুগোপযোগী সাধারণ শিক্ষায় শিক্ষার্থীদের পারদর্শী করে গড়ে তোলা হয়।"
         };
 
         const defaultGallery = [
@@ -461,18 +460,19 @@
         ];
 
         const defaultBooks = [
+            { className: "নার্সারি", title: "নূরানী আরবি ও বাংলা বর্ণমালা শিক্ষা", subject: "আরবি ও বাংলা", link: "https://nctb.gov.bd" },
+            { className: "হিফজ বিভাগ", title: "তাজবীদসহ কুরআনুল কারীম (হিফজ সংস্করণ)", subject: "হিফজুল কুরআন", link: "https://nctb.gov.bd" },
             { className: "১ম শ্রেণি", title: "নূরানী কায়দা ও আমপারা (১ম শ্রেণি)", subject: "কুরআন ও তাজবীদ", link: "https://nctb.gov.bd" },
             { className: "১ম শ্রেণি", title: "আমার বাংলা বই (১ম শ্রেণি)", subject: "বাংলা", link: "https://nctb.gov.bd" },
             { className: "১ম শ্রেণি", title: "English for Today (Class 1)", subject: "ইংরেজি", link: "https://nctb.gov.bd" },
             { className: "২য় শ্রেণি", title: "আদইয়াতুস সালাত ও মাসনূন দোয়া", subject: "হাদিস ও ফিকহ", link: "https://nctb.gov.bd" },
             { className: "৩য় শ্রেণি", title: "আকাইদ ও ফিকহ (৩য় শ্রেণি)", subject: "ইসলামী শিক্ষা", link: "https://nctb.gov.bd" },
             { className: "৪র্থ শ্রেণি", title: "আল-লুগাতুল আরাবিয়্যাহ (৪র্থ শ্রেণি)", subject: "আরবি সাহিত্য", link: "https://nctb.gov.bd" },
-            { className: "৫ম শ্রেণি", title: "কুরআন মাজীদ ও তাজবীদ (৫ম শ্রেণি)", subject: "কুরআন", link: "https://nctb.gov.bd" },
-            { className: "৫ম শ্রেণি", title: "প্রাথমিক গণিত ও বাংলা (৫ম শ্রেণি)", subject: "সাধারণ শিক্ষা", link: "https://nctb.gov.bd" }
+            { className: "৫ম শ্রেণি", title: "কুরআন মাজীদ ও তাজবীদ (৫ম শ্রেণি)", subject: "কুরআন", link: "https://nctb.gov.bd" }
         ];
 
         const defaultNotices = [
-            { date: "২০ অক্টোবর, ২০২৬", title: "নতুন শিক্ষাবর্ষে নূরানী, হিফজ ও ১ম-৫ম শ্রেণিতে ভর্তি বিজ্ঞপ্তি", desc: "রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ-তে আবাসিক ও অনাবাসিক শাখায় ভর্তি চলছে।", link: "" }
+            { date: "২০ অক্টোবর, ২০২৬", title: "নতুন শিক্ষাবর্ষে নার্সারি, হিফজ বিভাগ ও ১ম-৫ম শ্রেণিতে ভর্তি বিজ্ঞপ্তি", desc: "রফিকুল ইসলাম দারুল হিকমাহ আল ইসলামিয়্যাহ-তে আবাসিক ও অনাবাসিক শাখায় ভর্তি চলছে।", link: "" }
         ];
 
         const defaultTeachers = [
@@ -481,9 +481,10 @@
         ];
 
         const defaultClasses = [
-            { title: "নূরানী ও মক্তব বিভাগ", desc: "বিশুদ্ধ উচ্চারণে নূরানী কায়দা, আমপারা, মাসনূন দোয়া ও নামাজ শিক্ষা।", time: "সকাল ৮:০০ - ১১:৩০ মি.", color: "emerald" },
-            { title: "নাজেরা ও হিফজুল কুরআন বিভাগ", desc: "অভিজ্ঞ হাফেজ ও ক্বারী সাহেবদের তত্ত্বাবধানে তাজবীদসহ কুরআন হিফজ।", time: "সকাল ৬:০০ - রাত ৯:০০ মি.", color: "amber" },
-            { title: "১ম থেকে ৫ম শ্রেণি (সমন্বিত বিভাগ)", desc: "দ্বীনি কিতাবের পাশাপাশি বাংলা, ইংরেজি ও গণিতের পূর্ণাঙ্গ পাঠদান।", time: "সকাল ৯:০০ - বিকেল ৪:০০ মি.", color: "sky" }
+            { title: "নার্সারি বিভাগ", desc: "শিশুদের জন্য আনন্দময় পরিবেশে আরবি হরফ, নূরানী কায়দা, বাংলা, ইংরেজি বর্ণমালা ও মাসনূন দোয়া শিক্ষা।", time: "সকাল ৮:৩০ - ১১:৩০ মি.", color: "pink" },
+            { title: "হিফজ বিভাগ (নাজেরা ও হিফজুল কুরআন)", desc: "অভিজ্ঞ হাফেজ ও ক্বারী সাহেবদের নিবিড় তত্ত্বাবধানে তাজবীদসহ সম্পূর্ণ কুরআনুল কারীম হিফজ।", time: "সকাল ৬:০০ - রাত ৯:০০ মি.", color: "emerald" },
+            { title: "১ম ও ২য় শ্রেণি", desc: "কুরআন শিক্ষা ও দ্বীনি বিষয়ের পাশাপাশি বাংলা, ইংরেজি ও গণিতের মৌলিক ধারণা গঠন।", time: "সকাল ৯:০০ - দুপুর ১২:৩০ মি.", color: "amber" },
+            { title: "৩য়, ৪র্থ ও ৫ম শ্রেণি", desc: "আবশ্যিক দ্বীনি কিতাব, সাধারণ বিষয়সমূহ এবং বৃত্তি পরীক্ষার বিশেষ প্রস্তুতি।", time: "সকাল ৯:০০ - বিকেল ৪:০০ মি.", color: "sky" }
         ];
 
         let allBooks = [];
@@ -768,7 +769,7 @@
                 : allBooks.filter(b => b.className === currentBookFilter);
 
             if (!filtered.length) {
-                container.innerHTML = `<p class="col-span-full text-center text-slate-400 py-8">এই শ্রেণির কোনো বই এখনো যুক্ত করা হয়নি।</p>`;
+                container.innerHTML = `<p class="col-span-full text-center text-slate-400 py-8">এই শ্রেণি বা বিভাগের কোনো বই এখনো যুক্ত করা হয়নি।</p>`;
                 return;
             }
             container.innerHTML = filtered.map(b => `
