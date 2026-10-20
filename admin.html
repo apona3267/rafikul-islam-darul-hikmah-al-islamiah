@@ -83,7 +83,7 @@
                         <span id="galleryCountBadge" class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded-full">0</span>
                     </button>
                     <button onclick="switchTab('books')" id="tabbtn-books" class="tab-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-800 flex items-center">
-                        <i class="fa-solid fa-book-quran w-6 text-amber-300"></i> পাঠ্যবই ও কিতাব (১ম-৫ম)
+                        <i class="fa-solid fa-book-quran w-6 text-amber-300"></i> পাঠ্যবই ও কিতাব
                     </button>
                     <button onclick="switchTab('classes')" id="tabbtn-classes" class="tab-btn w-full text-left px-4 py-3 rounded-xl hover:bg-emerald-800 flex items-center">
                         <i class="fa-solid fa-chalkboard w-6 text-amber-300"></i> বিভাগ ও শ্রেণি কার্যক্রম
@@ -236,14 +236,16 @@
 
             <!-- TAB 3: BOOKS -->
             <div id="tab-books" class="admin-tab space-y-6 max-w-5xl">
-                <h2 class="text-2xl font-bold text-slate-800 border-b pb-3">১ম থেকে ৫ম শ্রেণির পাঠ্যবই ও কিতাব নিয়ন্ত্রণ</h2>
+                <h2 class="text-2xl font-bold text-slate-800 border-b pb-3">নার্সারি, হিফজ বিভাগ ও ১ম থেকে ৫ম শ্রেণির পাঠ্যবই নিয়ন্ত্রণ</h2>
                 
                 <div class="bg-white p-6 rounded-2xl shadow-sm border space-y-4">
                     <h4 class="font-bold text-emerald-800">নতুন পাঠ্যবই / কিতাব যুক্ত করুন</h4>
                     <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
                         <div>
-                            <label class="block text-xs font-bold text-slate-600 mb-1">শ্রেণি *</label>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">বিভাগ / শ্রেণি *</label>
                             <select id="bookClass" class="w-full border rounded-lg px-3 py-2 text-sm">
+                                <option>নার্সারি</option>
+                                <option>হিফজ বিভাগ</option>
                                 <option>১ম শ্রেণি</option>
                                 <option>২য় শ্রেণি</option>
                                 <option>৩য় শ্রেণি</option>
@@ -275,7 +277,7 @@
                         <table class="w-full text-left border-collapse text-sm">
                             <thead class="bg-slate-100 border-b">
                                 <tr>
-                                    <th class="p-3">শ্রেণি</th>
+                                    <th class="p-3">বিভাগ / শ্রেণি</th>
                                     <th class="p-3">বইয়ের নাম</th>
                                     <th class="p-3">বিষয়</th>
                                     <th class="p-3">লিংক</th>
@@ -297,7 +299,7 @@
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">বিভাগ বা শ্রেণির নাম *</label>
-                            <input type="text" id="clsTitle" placeholder="যেমন: নূরানী ও মক্তব বিভাগ" class="w-full border rounded-lg px-3 py-2 text-sm">
+                            <input type="text" id="clsTitle" placeholder="যেমন: নার্সারি বিভাগ / হিফজ বিভাগ" class="w-full border rounded-lg px-3 py-2 text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">সময়সূচি *</label>
